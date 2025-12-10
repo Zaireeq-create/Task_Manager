@@ -9,14 +9,13 @@ if (window.location.pathname.includes('index.html')) {
     const validUsername = "user";
     const validPassword = "user123";
 
-    // Check if the entered code is match with the password that i already set
-    if (username === validUsername && password === validPassword) {
-      //move to dashboard page on successful login
-      window.location.href = "dashboard.html"; // Redirect to the actual dashboard
-    } else {
-      // Show the error message if the password are incorrect
-      document.getElementById("error-message").style.display = "block";
-    }
+  if (username === validUsername && password === validPassword) {
+  const basePath = window.location.pathname.replace(/index\.html$/, "");
+  window.location.href = basePath + "dashboard.html";
+} else {
+  document.getElementById("error-message").style.display = "block";
+}
+
   });
 }
 
@@ -181,6 +180,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
