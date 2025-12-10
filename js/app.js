@@ -1,5 +1,5 @@
 // Login Page 
-if (window.location.pathname.includes('dashboard.html')) {
+if (window.location.pathname.includes('index.html')) {
   document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
     // Get the username and password values
@@ -9,7 +9,7 @@ if (window.location.pathname.includes('dashboard.html')) {
     const validUsername = "user";
     const validPassword = "user123";
   if (username === validUsername && password === validPassword) {
-  const basePath = window.location.pathname.replace(/dashboard\.html$/, "");
+  const basePath = window.location.pathname.replace(/index\.html$/, "");
   window.location.href = basePath + "dashboard.html";
 } else {
   document.getElementById("error-message").style.display = "block";
@@ -179,6 +179,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
