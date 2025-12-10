@@ -8,9 +8,8 @@ if (window.location.pathname.includes('dashboard.html')) {
     // Hardcoded password and username
     const validUsername = "user";
     const validPassword = "user123";
-
   if (username === validUsername && password === validPassword) {
-  const basePath = window.location.pathname.replace(/index\.html$/, "");
+  const basePath = window.location.pathname.replace(/dashboard\.html$/, "");
   window.location.href = basePath + "dashboard.html";
 } else {
   document.getElementById("error-message").style.display = "block";
@@ -180,6 +179,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
