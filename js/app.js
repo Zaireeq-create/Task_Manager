@@ -1,5 +1,5 @@
 // Login Page 
-if (window.location.pathname.includes('index.html')) {
+if (window.location.pathname.includes('dahsboard.html')) {
   document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
     // Get the username and password values
@@ -181,5 +181,6 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
