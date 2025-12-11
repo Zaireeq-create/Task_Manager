@@ -1,5 +1,5 @@
 // Login Page 
-if (window.location.pathname.includes('index.html')) {
+
 
   // FUNCTION version (no submit)
   function loginUser() {
@@ -20,8 +20,6 @@ if (window.location.pathname.includes('index.html')) {
   }
 
   // Button instead of submit
-  document.getElementById("loginBtn").addEventListener("click", loginUser);
-}
 
 
 
@@ -185,6 +183,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
