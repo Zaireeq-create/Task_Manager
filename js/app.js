@@ -44,72 +44,60 @@ if (window.location.pathname.includes('dashboard.html')) {
 }
 
 
-// For tasks.html
+//for tasks.html
 if (window.location.pathname.includes('tasks.html')) {
-
-  // Load tasks from localStorage
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  // Render tasks into the table
+  // Function to render tasks in the table
   function renderTasks() {
     const taskListElement = document.getElementById("taskList");
-    taskListElement.innerHTML = "";
+    taskListElement.innerHTML = ""; // Clear existing tasks
+
+    // Log the tasks to see if it's being populated correctly
+    console.log('Tasks: ', tasks); 
 
     tasks.forEach((task, index) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${index + 1}</td>
         <td>${task}</td>
-        <td>
-        <button class="btn btn-danger delete-btn" data-index="${index}">
-        Delete
-        </button>
-        </td>
+        <td><button class="btn btn-danger delete-btn" data-index="${index}">Delete</button></td>
       `;
       taskListElement.appendChild(row);
     });
 
-   
-    document.querySelectorAll(".delete-btn").forEach(button => 
-    {
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach(button => {
       button.addEventListener("click", deleteTask);
     });
   }
 
-  // Add new task (from modal input)
+  // to add a new task
   function addTask() {
-    const taskInput = document.getElementById("modalTaskInput");
+    const taskInput = document.getElementById("taskInput");
     const newTask = taskInput.value.trim();
 
     if (newTask) {
-      tasks.push(newTask);
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+      tasks.push(newTask); // Add the new task to the tasks array
+      localStorage.setItem("tasks", JSON.stringify(tasks)); // keep the tasks array in localStorage
+      taskInput.value = ""; 
+      renderTasks(); 
+    } else 
 
-      taskInput.value = ""; // Clear input
-
-      // Close modal with Bootstrap API
-      const modal = bootstrap.Modal.getInstance(
-        document.getElementById('addTaskModal')
-      );
-      modal.hide();
-
-      renderTasks();
+    {
+      console.log("Please enter a valid task!"); 
     }
   }
 
-  // Delete a task
+  // Function to delete a task
   function deleteTask(event) {
-    const index = event.target.getAttribute("data-index");
-    tasks.splice(index, 1);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    renderTasks();
+  const index = event.target.getAttribute("data-index");
+  tasks.splice(index, 1); //remove tasks
+  localStorage.setItem("tasks", JSON.stringify(tasks)); 
+  renderTasks();
   }
 
-  // Listen for "Add" button inside modal
-  document.getElementById("modalAddTaskBtn")
-          .addEventListener("click", addTask);
-
-  // Initial render
+  document.getElementById("addTaskBtn").addEventListener("click", addTask);
   renderTasks();
 }
 
@@ -186,6 +174,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
