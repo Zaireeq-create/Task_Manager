@@ -1,7 +1,4 @@
 // Login Page 
-
-
-  // FUNCTION version (no submit)
   function loginUser() {
     // Get username & password
     const username = document.getElementById("username").value;
@@ -18,10 +15,6 @@
       document.getElementById("error-message").style.display = "block";
     }
   }
-
-  // Button instead of submit
-
-
 
 //for dashboard.html
 if (window.location.pathname.includes('dashboard.html')) {
@@ -183,6 +176,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
