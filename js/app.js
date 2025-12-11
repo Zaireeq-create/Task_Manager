@@ -1,22 +1,28 @@
 // Login Page 
 if (window.location.pathname.includes('index.html')) {
-  document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    // Get the username and password values
+
+  // FUNCTION version (no submit)
+  function loginUser() {
+    // Get username & password
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    // Hardcoded password and username
+
+    // Hardcoded user
     const validUsername = "user";
     const validPassword = "user123";
-  if (username === validUsername && password === validPassword) {
-  const basePath = window.location.pathname.replace(/index\.html$/, "");
-  window.location.href = "dashboard.html";
-} else {
-  document.getElementById("error-message").style.display = "block";
+
+    if (username === validUsername && password === validPassword) {
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+    } else {
+      document.getElementById("error-message").style.display = "block";
+    }
+  }
+
+  // Button instead of submit
+  document.getElementById("loginBtn").addEventListener("click", loginUser);
 }
 
-  });
-}
 
 
 //for dashboard.html
@@ -179,6 +185,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
