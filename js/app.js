@@ -61,16 +61,17 @@ if (window.location.pathname.includes('tasks.html')) {
         <td>${index + 1}</td>
         <td>${task}</td>
         <td>
-          <button class="btn btn-danger delete-btn" data-index="${index}">
-            Delete
-          </button>
+        <button class="btn btn-danger delete-btn" data-index="${index}">
+        Delete
+        </button>
         </td>
       `;
       taskListElement.appendChild(row);
     });
 
-    // Attach delete buttons after rendering
-    document.querySelectorAll(".delete-btn").forEach(button => {
+   
+    document.querySelectorAll(".delete-btn").forEach(button => 
+    {
       button.addEventListener("click", deleteTask);
     });
   }
@@ -115,14 +116,13 @@ if (window.location.pathname.includes('tasks.html')) {
 
 //for completed.html
 if (window.location.pathname.includes('completed.html')) {
-  // Retrieve the data about tasks and completed tasks from the localStorage
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   let completedTasks = JSON.parse(localStorage.getItem("completedTasks")) || [];
 
-  // Function to render both total and completed tasks in the same table
+  
   function renderTasks() {
-    const taskListElement = document.getElementById("taskList");
-    taskListElement.innerHTML = ""; // this wll clear the existing list
+  onst taskListElement = document.getElementById("taskList");
+  taskListElement.innerHTML = ""; // this wll clear the existing list
     
     [...tasks, ...completedTasks].forEach((task, index) => 
       {
@@ -134,9 +134,9 @@ if (window.location.pathname.includes('completed.html')) {
         <td>${index + 1}</td>
         <td>${task}</td>
         <td>
-          ${isCompleted ? 
-            `<button class="btn btn-danger undo-btn" data-task="${task}">Mark as Incomplete</button>` :
-            `<button class="btn btn-success complete-btn" data-task="${task}">Mark as Completed</button>`}
+         ${isCompleted ? 
+         `<button class="btn btn-danger undo-btn" data-task="${task}">Mark as Incomplete</button>` :
+         `<button class="btn btn-success complete-btn" data-task="${task}">Mark as Completed</button>`}
         </td>
       `;
       taskListElement.appendChild(row);
@@ -186,6 +186,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
