@@ -10,7 +10,7 @@ if (window.location.pathname.includes('index.html')) {
     const validPassword = "user123";
   if (username === validUsername && password === validPassword) {
   const basePath = window.location.pathname.replace(/index\.html$/, "");
-  window.location.href = basePath + "dashboard.html";
+  window.location.href = "dashboard.html";
 } else {
   document.getElementById("error-message").style.display = "block";
 }
@@ -179,6 +179,7 @@ if (window.location.pathname.includes('completed.html')) {
   }
   renderTasks();
 }
+
 
 
 
