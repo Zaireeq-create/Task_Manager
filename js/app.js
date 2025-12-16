@@ -96,24 +96,9 @@ if (window.location.pathname.includes('tasks.html')) {
   localStorage.setItem("tasks", JSON.stringify(tasks)); 
   renderTasks();
   }
-// clear function
+
   document.getElementById("addTaskBtn").addEventListener("click", addTask);
   renderTasks();
-function clearAllData() {
-  if (confirm("Are you sure you want to delete ALL tasks?")) {
-    localStorage.removeItem("tasks");
-    localStorage.removeItem("completedTasks");
-    localStorage.removeItem("totalTasks");
-    localStorage.removeItem("completedTasksCount");
-    location.reload();
-  }
-}
-
-  const clearBtn = document.getElementById("clearAllBtn");
-if (clearBtn) {
-  clearBtn.addEventListener("click", clearAllData);
-}
-  
 }
 
 
@@ -189,15 +174,8 @@ if (window.location.pathname.includes('completed.html')) {
     localStorage.setItem("completedTasksCount", completedTaskCount);
     
   }
-
-const clearBtn = document.getElementById("clearAllBtn");
-if (clearBtn) {
-clearBtn.addEventListener("click", clearAllData);
-  
-}
   renderTasks();
 }
-
 
 
 
